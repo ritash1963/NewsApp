@@ -1,2 +1,37 @@
-<p *ngFor="let newData of newsData">{{newData.newsType}} - {{newData.newsText}}</p> 
+<!--<p *ngFor="let newData of newsData">{{newData.newsType}} - {{newData.newsText}}</p> -->
+<div class="container mt-5" >
 
+    <div class="row">
+     <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="getNewsData()" autocomplete="off">
+         <div class="d-flex mx-2">
+             <label class="col-form-label me-2">About: </label>
+             <input type="text" class="form-control ml-1" style="width: 250px;" name="newsText" 
+                 [(ngModel)]="paramData.newsText">
+         </div>
+         <div class="d-flex mx-2">
+         <label class="col-form-label me-2" for="type">Type: </label>
+         <select class="form-control me-2" style="width: 130px" id="type"
+           [(ngModel)]="paramData.newsType" name="newsType">
+           <option *ngFor="let type of typeList" [value]="type.value">
+             {{type.display}}
+           </option>
+         </select>
+        </div>
+         <button class="btn btn-primary ms-1" type="submit">Search</button>
+     </form>
+ </div>
+
+<div class="row">
+ <table class="table table-hover" style="cursor: pointer">
+   <tr>
+     <th style="width: 30%">Type of News</th>
+     <th style="width: 70%">Content of News</th>
+   </tr>
+   <tr *ngFor="let newData of newsData">
+     <td>{{newData.newsType}}</td>
+     <td>{{newData.newsText}}</td>
+   </tr>
+ </table>
+</div>
+
+</div>
