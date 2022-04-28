@@ -4,20 +4,20 @@
     <div class="row">
      <form #form="ngForm" class="d-flex mb-3" (ngSubmit)="getNewsData()" autocomplete="off">
          <div class="d-flex mx-2">
-             <label class="col-form-label me-2">About: </label>
+             <label class="col-form-label px-2">About: </label>
              <input type="text" class="form-control ml-1" style="width: 250px;" name="newsText" 
                  [(ngModel)]="paramData.newsText">
          </div>
          <div class="d-flex mx-2">
-         <label class="col-form-label me-2" for="type">Type: </label>
-            <select class="form-control me-2" style="width: 130px" id="type" 
+         <label class="col-form-label px-2" for="type">Type: </label>
+            <select class="form-control form-select ml-1" style="width: 130px" id="type" 
            [(ngModel)]="paramData.newsType" name="newsType">
            <option *ngFor="let type of typeList" [value]="type.value">
              {{type.display}}
            </option>
          </select>
         </div>
-        <button class="btn btn-primary ms-1" type="submit">Search</button>
+        <button class="btn btn-primary ml-3" type="submit">Search</button>
      </form>
  </div>
 
