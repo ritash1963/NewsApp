@@ -10,6 +10,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { NewsComponent } from './news/news.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BsDropdownModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
    })
