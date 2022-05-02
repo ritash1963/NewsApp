@@ -18,8 +18,17 @@ namespace API.Data
         public async Task<List<NewsE>> GetNewsAsync(NewsDto n)
         {
             
-            return await _context.NewsTbl.Where(x => (string.IsNullOrEmpty(n.NewsType) || x.NewsType == n.NewsType)
+             var news = await _context.NewsTbl.Where(x => (string.IsNullOrEmpty(n.NewsType) || x.NewsType == n.NewsType)
                                                   && (string.IsNullOrEmpty(n.NewsText) || x.NewsText.Contains(n.NewsText))).ToListAsync();
+            foreach (var nw in news)
+                {
+                    nw.Qut += 1;
+                }
+                             
+            await _context.SaveChangesAsync();
+
+                                  
+            return news;
         }
 
         public async Task<bool> SaveAll()
